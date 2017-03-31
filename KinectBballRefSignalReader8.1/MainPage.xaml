@@ -8,6 +8,42 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <!--<Viewbox Grid.Row="1" HorizontalAlignment="Center">
+            <Grid x:Name="BodyJointsGrid" Background="Transparent" Width="512" Height="414"/>
+        </Viewbox>-->
+        <Image x:Name="FrameDisplayImage" Grid.Row="1" Width="250" Height="200" HorizontalAlignment="Right" VerticalAlignment="Top"/>
 
+        <TextBlock x:Name="txtHeader" Grid.Row="0" Text="Basketball Referee Signal Reader" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Left" />
+        <TextBlock x:Name="tblKinectStatus" Grid.Row="0" HorizontalAlignment="Right" Margin="10,0,10,0" />
+
+        <TextBlock x:Name="txtGestureOutput" Text="{Binding RefSignalOutput}" TextAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" TextWrapping="WrapWholeWords" />
+        <Button x:Name="btnKinectStart" Content="Start Recording" Grid.Row="2" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="Visible" Click="btnKinectStart_Click"  />
+        <Button x:Name="btnKinectStop" Content="Stop Recording" Grid.Row="2" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="Collapsed" Click="btnKinectStop_Click" />
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10">
+            <Ellipse x:Name="kinectSetup" Height="80" Width="120" Tapped="kinectSetup_Tapped">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Images/Settings-icon.png" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse x:Name="kinect" Height="80" Width="120" Tapped="kinect_Tapped">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Images/kinect_for_windows_v2.png" />
+                </Ellipse.Fill>
+            </Ellipse>
+        </StackPanel>
+        
+        <!--<StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="30">
+            <TextBlock FontSize="24" Text="Kinect Status:  "/>
+            <TextBlock FontSize="24" Text="{Binding StatusText}"/>
+            <TextBlock FontSize="24" Text=", FrameWidth =  "/>
+            <TextBlock FontSize="24" Text= "{Binding CurrentFrameDescription.Width}"/>
+            <TextBlock FontSize="24" Text=", FrameHeight =  "/>
+            <TextBlock FontSize="24" Text= "{Binding CurrentFrameDescription.Height}"/>
+        </StackPanel>-->
     </Grid>
 </Page>
